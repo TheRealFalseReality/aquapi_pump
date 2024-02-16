@@ -7,6 +7,7 @@ substitutions:
 
 packages:
   device_base: !include common/device_base.yaml
+  debug: !include common/debug.yaml
   # binary: !include common/binary.yaml
   aquapi: !include common/aquapi.yaml
   ezo_pmp: !include common/ezo_pmp.yaml

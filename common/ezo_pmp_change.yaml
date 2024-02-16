@@ -88,6 +88,23 @@ api:
             id: ezo_pump_clean
             volume: !lambda |-
               return actual_volume;
+    - service: pump_water_change
+      variables:
+        volume: float
+        duration: float
+      then:
+        - ezo_pmp.dose_volume_over_time:
+            id: ezo_pump_clean
+            volume: !lambda |-
+              return volume;
+            duration: !lambda |-
+              return duration;
+        - ezo_pmp.dose_volume_over_time:
+            id: ezo_pump_waste
+            volume: !lambda |-
+              return volume;
+            duration: !lambda |-
+              return duration;
 
 sensor:
   - platform: ezo_pmp

@@ -262,7 +262,6 @@ number:
     id: flow_rate_waste
     icon: mdi:pump
     name: Pump Waste - Volume/Time Flow Rate
-    device_class: 'volume_flow_rate'
     unit_of_measurement: 'mL/min'
     optimistic: true
     initial_value: 10
@@ -298,7 +297,6 @@ number:
     id: flow_rate_clean
     icon: mdi:pump
     name: Pump Clean - Volume/Time Flow Rate
-    device_class: 'volume_flow_rate'
     unit_of_measurement: 'mL/min'
     optimistic: true
     initial_value: 10

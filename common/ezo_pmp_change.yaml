@@ -115,14 +115,15 @@ sensor:
       icon: mdi:cube-scan
       device_class: 'volume'
       unit_of_measurement: 'mL'
-  # - platform: ezo_pmp
-    # id: ezo_pump_waste
-  #   total_volume_dosed:
-  #     id: total_volume_dosed_waste
-  #     name: Pump Waste - Total Volume Dosed
-  #     icon: mdi:timer-sand-empty
-      # device_class: 'volume'
-      # unit_of_measurement: 'mL'
+  - platform: ezo_pmp
+    id: ezo_pump_waste
+    disabled_by_default: true
+    total_volume_dosed:
+      id: total_volume_dosed_waste
+      name: Pump Waste - Total Volume Dosed
+      icon: mdi:timer-sand-empty
+      device_class: 'volume'
+      unit_of_measurement: 'mL'
   - platform: ezo_pmp
     id: ezo_pump_waste
     absolute_total_volume_dosed:
@@ -147,49 +148,59 @@ sensor:
       icon: mdi:car-speed-limiter
       device_class: 'volume'
       unit_of_measurement: 'mL/min'
-  # - platform: ezo_pmp
-  #   id: ezo_pump_waste
-  #   pump_voltage:
-  #     id: pump_voltage_waste
-  #     name: Pump Waste - Voltage
-  #     disabled_by_default: true
-      # device_class: 'voltage'
+  - platform: ezo_pmp
+    id: ezo_pump_waste
+    pump_voltage:
+      id: pump_voltage_waste
+      name: Pump Waste - Voltage
+      disabled_by_default: true
+      device_class: 'voltage'
   - platform: ezo_pmp
     id: ezo_pump_clean
     current_volume_dosed:
       id: current_volume_dosed_clean
       name: Pump Clean - Current Volume Dosed
       icon: mdi:cube-scan
-  # - platform: ezo_pmp
-    # id: ezo_pump_clean
-  #   total_volume_dosed:
-  #     id: total_volume_dosed_clean
-  #     name: Pump Clean - Total Volume Dosed
-  #     icon: mdi:timer-sand-empty
+      device_class: 'volume'
+      unit_of_measurement: 'mL'
+  - platform: ezo_pmp
+    id: ezo_pump_clean
+    total_volume_dosed:
+      id: total_volume_dosed_clean
+      name: Pump Clean - Total Volume Dosed
+      icon: mdi:timer-sand-empty
+      disabled_by_default: true
+      device_class: 'volume'
+      unit_of_measurement: 'mL'
   - platform: ezo_pmp
     id: ezo_pump_clean
     absolute_total_volume_dosed:
       id: absolute_total_volume_dosed_clean
       name: Pump Clean - Absolute Total Volume Dosed
       icon: mdi:timer-sand-full
+      device_class: 'volume'
+      unit_of_measurement: 'mL'
   - platform: ezo_pmp
     id: ezo_pump_clean
     last_volume_requested:
       id: last_volume_requested_clean
       name: Pump Clean - Last Volume Requested
       icon: mdi:history
+      device_class: 'volume'
+      unit_of_measurement: 'mL'
   - platform: ezo_pmp
     id: ezo_pump_clean
     max_flow_rate:
       id: max_flow_rate_clean
       name: Pump Clean - Max Volume/Time Flow Rate
       icon: mdi:car-speed-limiter
-  # - platform: ezo_pmp
-    # id: ezo_pump_clean
-  #   pump_voltage:
-  #     id: pump_voltage_clean
-  #     name: Pump Clean - Voltage
-  #     disabled_by_default: true
+  - platform: ezo_pmp
+    id: ezo_pump_clean
+    pump_voltage:
+      id: pump_voltage_clean
+      name: Pump Clean - Voltage
+      disabled_by_default: true
+      device_class: 'voltage'
 
 binary_sensor:
   - platform: ezo_pmp

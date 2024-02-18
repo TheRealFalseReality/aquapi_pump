@@ -55,36 +55,47 @@ sensor:
       id: current_volume_dosed
       name: Pump - Current Volume Dosed
       icon: mdi:cube-scan
-  # - platform: ezo_pmp
-    # id: ezo_pump
-  #   total_volume_dosed:
-  #     id: total_volume_dosed
-  #     name: Pump - Total Volume Dosed
-  #     icon: mdi:timer-sand-empty
+      device_class: 'volume'
+      unit_of_measurement: 'mL'
+  - platform: ezo_pmp
+    id: ezo_pump
+    disabled_by_default: true
+    total_volume_dosed:
+      id: total_volume_dosed
+      name: Pump - Total Volume Dosed
+      icon: mdi:timer-sand-empty
+      device_class: 'volume'
+      unit_of_measurement: 'mL'
   - platform: ezo_pmp
     id: ezo_pump
     absolute_total_volume_dosed:
       id: absolute_total_volume_dosed
       name: Pump - Absolute Total Volume Dosed
       icon: mdi:timer-sand-full
+      device_class: 'volume'
+      unit_of_measurement: 'mL'
   - platform: ezo_pmp
     id: ezo_pump
     last_volume_requested:
       id: last_volume_requested
       name: Pump - Last Volume Requested
       icon: mdi:history
+      device_class: 'volume'
+      unit_of_measurement: 'mL'
   - platform: ezo_pmp
     id: ezo_pump
     max_flow_rate:
       id: max_flow_rate
       name: Pump - Max Volume/Time Flow Rate
       icon: mdi:car-speed-limiter
-  # - platform: ezo_pmp
-    # id: ezo_pump
-  #   pump_voltage:
-  #     id: pump_voltage
-  #     name: Pump - Voltage
-  #     disabled_by_default: true
+  - platform: ezo_pmp
+    id: ezo_pump
+    disabled_by_default: true
+    pump_voltage:
+      id: pump_voltage
+      name: Pump - Voltage
+      disabled_by_default: true
+      device_class: 'voltage'
 
 binary_sensor:
   - platform: ezo_pmp

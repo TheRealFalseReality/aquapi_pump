@@ -59,13 +59,13 @@ sensor:
       unit_of_measurement: 'mL'
   - platform: ezo_pmp
     id: ezo_pump
-    disabled_by_default: true
     total_volume_dosed:
       id: total_volume_dosed
       name: Pump - Total Volume Dosed
       icon: mdi:timer-sand-empty
       device_class: 'volume'
       unit_of_measurement: 'mL'
+      disabled_by_default: true
   - platform: ezo_pmp
     id: ezo_pump
     absolute_total_volume_dosed:

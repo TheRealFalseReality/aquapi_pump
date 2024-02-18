@@ -113,36 +113,47 @@ sensor:
       id: current_volume_dosed_waste
       name: Pump Waste - Current Volume Dosed
       icon: mdi:cube-scan
+      device_class: 'volume'
+      unit_of_measurement: 'mL'
   # - platform: ezo_pmp
     # id: ezo_pump_waste
   #   total_volume_dosed:
   #     id: total_volume_dosed_waste
   #     name: Pump Waste - Total Volume Dosed
   #     icon: mdi:timer-sand-empty
+      # device_class: 'volume'
+      # unit_of_measurement: 'mL'
   - platform: ezo_pmp
     id: ezo_pump_waste
     absolute_total_volume_dosed:
       id: absolute_total_volume_dosed_waste
       name: Pump Waste - Absolute Total Volume Dosed
       icon: mdi:timer-sand-full
+      device_class: 'volume'
+      unit_of_measurement: 'mL'
   - platform: ezo_pmp
     id: ezo_pump_waste
     last_volume_requested:
       id: last_volume_requested_waste
       name: Pump Waste - Last Volume Requested
       icon: mdi:history
+      device_class: 'volume'
+      unit_of_measurement: 'mL'
   - platform: ezo_pmp
     id: ezo_pump_waste
     max_flow_rate:
       id: max_flow_rate_waste
       name: Pump Waste - Max Volume/Time Flow Rate
       icon: mdi:car-speed-limiter
+      device_class: 'volume'
+      unit_of_measurement: 'mL/min'
   # - platform: ezo_pmp
   #   id: ezo_pump_waste
   #   pump_voltage:
   #     id: pump_voltage_waste
   #     name: Pump Waste - Voltage
   #     disabled_by_default: true
+      # device_class: 'voltage'
   - platform: ezo_pmp
     id: ezo_pump_clean
     current_volume_dosed:

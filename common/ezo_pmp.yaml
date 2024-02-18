@@ -118,7 +118,9 @@ number:
   - platform: template
     id: volume
     icon: mdi:pump
-    name: Pump - Volume to Dose (mL)
+    name: Pump - Volume to Dose
+    device_class: 'volume'
+    unit_of_measurement: 'mL'
     optimistic: true
     initial_value: 10 # cannot be less than +/-0.1mL
     min_value: -378541
@@ -128,7 +130,9 @@ number:
   - platform: template
     id: duration
     icon: mdi:timer
-    name: Pump - Time to Dose (minutes)
+    name: Pump - Time to Dose
+    device_class: 'duration'
+    unit_of_measurement: 'min'
     optimistic: true
     initial_value: 1
     min_value: 1
@@ -138,7 +142,8 @@ number:
   - platform: template
     id: flow_rate
     icon: mdi:pump
-    name: Pump - Volume/Time Flow Rate (mL/min)
+    name: Pump - Volume/Time Flow Rate
+    unit_of_measurement: 'mL/min'
     optimistic: true
     initial_value: 10
     min_value: .5

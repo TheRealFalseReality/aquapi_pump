@@ -90,7 +90,6 @@ sensor:
       icon: mdi:car-speed-limiter
   - platform: ezo_pmp
     id: ezo_pump
-    disabled_by_default: true
     pump_voltage:
       id: pump_voltage
       name: Pump - Voltage

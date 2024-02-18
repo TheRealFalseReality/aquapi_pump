@@ -248,6 +248,9 @@ number:
     id: duration_waste
     icon: mdi:timer
     name: Pump Waste - Time to Dose (minutes)
+    state_class: "measurement"
+    device_class: 'duration'
+    unit_of_measurement: 'min'
     optimistic: true
     initial_value: 1
     min_value: 1

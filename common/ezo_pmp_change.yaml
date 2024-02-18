@@ -237,7 +237,9 @@ number:
   - platform: template
     id: volume_waste
     icon: mdi:pump
-    name: Pump Waste - Volume to Dose (mL)
+    name: Pump Waste - Volume to Dose
+    device_class: 'volume'
+    unit_of_measurement: 'mL'
     optimistic: true
     initial_value: 10 # cannot be less than +/-0.1mL
     min_value: -378541
@@ -247,7 +249,7 @@ number:
   - platform: template
     id: duration_waste
     icon: mdi:timer
-    name: Pump Waste - Time to Dose (minutes)
+    name: Pump Waste - Time to Dose
     device_class: 'duration'
     unit_of_measurement: 'min'
     optimistic: true
@@ -259,7 +261,9 @@ number:
   - platform: template
     id: flow_rate_waste
     icon: mdi:pump
-    name: Pump Waste - Volume/Time Flow Rate (mL/min)
+    name: Pump Waste - Volume/Time Flow Rate
+    device_class: 'volume_flow_rate'
+    unit_of_measurement: 'mL/min'
     optimistic: true
     initial_value: 10
     min_value: .5
@@ -269,7 +273,9 @@ number:
   - platform: template
     id: volume_clean
     icon: mdi:pump
-    name: Pump Clean - Volume to Dose (mL)
+    name: Pump Clean - Volume to Dose
+    device_class: 'volume'
+    unit_of_measurement: 'mL'
     optimistic: true
     initial_value: 10 # cannot be less than +/-0.1mL
     min_value: -378541
@@ -279,7 +285,9 @@ number:
   - platform: template
     id: duration_clean
     icon: mdi:timer
-    name: Pump Clean - Time to Dose (minutes)
+    name: Pump Clean - Time to Dose
+    device_class: 'duration'
+    unit_of_measurement: 'min'
     optimistic: true
     initial_value: 1
     min_value: 1
@@ -289,7 +297,9 @@ number:
   - platform: template
     id: flow_rate_clean
     icon: mdi:pump
-    name: Pump Clean - Volume/Time Flow Rate (mL/min)
+    name: Pump Clean - Volume/Time Flow Rate
+    device_class: 'volume_flow_rate'
+    unit_of_measurement: 'mL/min'
     optimistic: true
     initial_value: 10
     min_value: .5

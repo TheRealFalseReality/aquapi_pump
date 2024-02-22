@@ -212,7 +212,7 @@ binary_sensor:
   - platform: ezo_pmp
     id: ezo_pump_waste
     is_paused:
-      id: is_paused
+      id: is_paused_waste
       name: Pump Waste - Paused Status
       disabled_by_default: true
   - platform: ezo_pmp
@@ -224,7 +224,7 @@ binary_sensor:
   - platform: ezo_pmp
     id: ezo_pump_clean
     is_paused:
-      id: is_paused
+      id: is_paused_clean
       name: Pump Clean - Paused Status
       disabled_by_default: true
 

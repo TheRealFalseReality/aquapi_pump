@@ -47,6 +47,14 @@ api:
             id: ezo_pump
             volume: !lambda |-
               return actual_volume;
+    - service: pump_change_address
+      variables:
+        address: int
+      then:
+        - ezo_pmp.change_i2c_address:
+            id: ezo_pump
+            address: !lambda |-
+              return address;
 
 sensor:
   - platform: ezo_pmp

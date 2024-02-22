@@ -105,6 +105,22 @@ api:
               return volume;
             duration: !lambda |-
               return duration;
+    - service: pump_waste_change_address
+      variables:
+        address: int
+      then:
+        - ezo_pmp.change_i2c_address:
+            id: ezo_pump_waste
+            address: !lambda |-
+              return address;
+    - service: pump_clean_change_address
+      variables:
+        address: int
+      then:
+        - ezo_pmp.change_i2c_address:
+            id: ezo_pump_clean
+            address: !lambda |-
+              return address;
 
 sensor:
   - platform: ezo_pmp

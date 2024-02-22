@@ -205,9 +205,9 @@ sensor:
 binary_sensor:
   - platform: ezo_pmp
     id: ezo_pump_waste
-    icon: mdi:pump
     pump_state:
       id: pump_state_waste
+      icon: mdi:pump
       name: Pump Waste - State
   - platform: ezo_pmp
     id: ezo_pump_waste
@@ -217,9 +217,9 @@ binary_sensor:
       disabled_by_default: true
   - platform: ezo_pmp
     id: ezo_pump_clean
-    icon: mdi:pump
     pump_state:
       id: pump_state_clean
+      icon: mdi:pump
       name: Pump Clean - State
   - platform: ezo_pmp
     id: ezo_pump_clean

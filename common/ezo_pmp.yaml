@@ -100,10 +100,10 @@ sensor:
 binary_sensor:
   - platform: ezo_pmp
     id: ezo_pump
-    icon: mdi:pump
     pump_state:
       id: pump_state
       name: Pump - State
+      icon: mdi:pump
   - platform: ezo_pmp
     id: ezo_pump
     is_paused:

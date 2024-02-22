@@ -5,21 +5,6 @@ substitutions:
   addPMP_alt2: "109"
   addPMP_alt3: "110"
 
-api:
-  services:
-    - service: start_pump
-      variables: 
-        address: int
-      then:
-        - ezo_pmp.dose_continuously:
-            id: !lambda 'return address;'
-    - service: stop_pump
-      variables: 
-        address: int
-      then:
-        - ezo_pmp.stop_dosing:
-            id: !lambda 'return address;'
-
 button:
   # Change I2C Address of EZO-PMP
   - platform: template
@@ -53,21 +38,3 @@ button:
         - ezo_pmp.change_i2c_address:
             id: ezo_pump
             address: ${addPMP_alt3}
-
-  # Send EZO Command - Custom
-  - platform: template
-    name: EZO - Send Custom Command
-    id: send_custom
-    entity_category: "Config"
-    on_press:
-      then:
-        - lambda: |-
-            id(commmand_custom).state;
-
-text:
-    platform: template
-    name: EZO - Custom Command
-    id: commmand_custom
-    entity_category: "Config"
-    mode: text
-    optimistic: true

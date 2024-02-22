@@ -18,7 +18,21 @@ text_sensor:
       return {"github.com/TheRealFalseReality/aquapi"};
     entity_category: "diagnostic"
 
-# api:
+api:
+  services:
+    - service: start_pump
+      variables: 
+        address: int
+      then:
+        - ezo_pmp.dose_continuously:
+            id: !lambda 'return address;'
+    - service: stop_pump
+      variables: 
+        address: int
+      then:
+        - ezo_pmp.stop_dosing:
+            id: !lambda 'return address;'
+            
 # TODO Add General Pump command service
   # # Send EZO Command - Custom
   # - platform: template

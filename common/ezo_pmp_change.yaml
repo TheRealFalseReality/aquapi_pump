@@ -146,7 +146,6 @@ sensor:
       id: max_flow_rate_waste
       name: Pump Waste - Max Volume/Time Flow Rate
       icon: mdi:car-speed-limiter
-      device_class: 'volume'
       unit_of_measurement: 'mL/min'
   - platform: ezo_pmp
     id: ezo_pump_waste
@@ -194,6 +193,7 @@ sensor:
       id: max_flow_rate_clean
       name: Pump Clean - Max Volume/Time Flow Rate
       icon: mdi:car-speed-limiter
+      unit_of_measurement: 'mL/min'
   - platform: ezo_pmp
     id: ezo_pump_clean
     pump_voltage:
@@ -205,26 +205,28 @@ sensor:
 binary_sensor:
   - platform: ezo_pmp
     id: ezo_pump_waste
+    icon: mdi:pump
     pump_state:
       id: pump_state_waste
       name: Pump Waste - State
-  # - platform: ezo_pmp
-    # id: ezo_pump_waste
-  #   is_paused:
-  #     id: is_paused
-  #     name: Pump Waste - Paused Status
-  #     disabled_by_default: true
+  - platform: ezo_pmp
+    id: ezo_pump_waste
+    is_paused:
+      id: is_paused
+      name: Pump Waste - Paused Status
+      disabled_by_default: true
   - platform: ezo_pmp
     id: ezo_pump_clean
+    icon: mdi:pump
     pump_state:
       id: pump_state_clean
       name: Pump Clean - State
-  # - platform: ezo_pmp
-    # id: ezo_pump_clean
-  #   is_paused:
-  #     id: is_paused
-  #     name: Pump Clean - Paused Status
-  #     disabled_by_default: true
+  - platform: ezo_pmp
+    id: ezo_pump_clean
+    is_paused:
+      id: is_paused
+      name: Pump Clean - Paused Status
+      disabled_by_default: true
 
 
 text_sensor:
@@ -282,7 +284,7 @@ number:
     step: 0.1
   - platform: template
     id: flow_rate_waste
-    icon: mdi:pump
+    icon: mdi:waves-arrow-left
     name: Pump Waste - Volume/Time Flow Rate
     unit_of_measurement: 'mL/min'
     optimistic: true
@@ -317,7 +319,7 @@ number:
     step: 0.1
   - platform: template
     id: flow_rate_clean
-    icon: mdi:pump
+    icon: mdi:waves-arrow-right
     name: Pump Clean - Volume/Time Flow Rate
     unit_of_measurement: 'mL/min'
     optimistic: true

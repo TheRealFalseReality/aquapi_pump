@@ -5,8 +5,8 @@ substitutions:
   logger: "DEBUG"
 
   # I2C pins
-  sdaPin: "21" # yellow
-  sclPin: "22" # blue
+  sdaPin: "21" # yellow -> Green
+  sclPin: "22" # blue -> White
 
 esphome:
   name: "${name}"
@@ -40,9 +40,9 @@ wifi:
 
 captive_portal:
 
-# Sets up Bluetooth LE (Only on ESP32) to allow the user to provision wifi credentials to the device.
-esp32_improv:
-  authorizer: none
+# # Sets up Bluetooth LE (Only on ESP32) to allow the user to provision wifi credentials to the device.
+# esp32_improv:
+#   authorizer: none
   
 improv_serial:
 
@@ -95,7 +95,7 @@ sensor:
     id: i2c_devices
     icon: mdi:integrated-circuit-chip
     entity_category: "diagnostic"
-    disabled_by_default: true
+    # disabled_by_default: true
     lambda: |-
       byte error, address;
       int nDevices;

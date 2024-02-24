@@ -1,12 +1,13 @@
 substitutions:
   # names
-  name: "aquapi_pump"
+  name: "aquapi-pump"
   friendly_name: "AquaPi Pump"
   # App Version - Updated: 11/2023
   app_version: "1.0"
 
 packages:
   device_base: !include common/device_base.yaml
+  debug: !include common/debug.yaml
   # binary: !include common/binary.yaml
   aquapi: !include common/aquapi.yaml
   ezo_pmp: !include common/ezo_pmp.yaml

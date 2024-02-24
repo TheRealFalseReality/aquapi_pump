@@ -47,6 +47,14 @@ api:
             id: ezo_pump
             volume: !lambda |-
               return actual_volume;
+    - service: pump_change_address
+      variables:
+        address: int
+      then:
+        - ezo_pmp.change_i2c_address:
+            id: ezo_pump
+            address: !lambda |-
+              return address;
 
 sensor:
   - platform: ezo_pmp
@@ -55,36 +63,47 @@ sensor:
       id: current_volume_dosed
       name: Pump - Current Volume Dosed
       icon: mdi:cube-scan
-  # - platform: ezo_pmp
-    # id: ezo_pump
-  #   total_volume_dosed:
-  #     id: total_volume_dosed
-  #     name: Pump - Total Volume Dosed
-  #     icon: mdi:timer-sand-empty
+      device_class: 'volume'
+      unit_of_measurement: 'mL'
+  - platform: ezo_pmp
+    id: ezo_pump
+    total_volume_dosed:
+      id: total_volume_dosed
+      name: Pump - Total Volume Dosed
+      icon: mdi:timer-sand-empty
+      device_class: 'volume'
+      unit_of_measurement: 'mL'
+      disabled_by_default: true
   - platform: ezo_pmp
     id: ezo_pump
     absolute_total_volume_dosed:
       id: absolute_total_volume_dosed
       name: Pump - Absolute Total Volume Dosed
       icon: mdi:timer-sand-full
+      device_class: 'volume'
+      unit_of_measurement: 'mL'
   - platform: ezo_pmp
     id: ezo_pump
     last_volume_requested:
       id: last_volume_requested
       name: Pump - Last Volume Requested
       icon: mdi:history
+      device_class: 'volume'
+      unit_of_measurement: 'mL'
   - platform: ezo_pmp
     id: ezo_pump
     max_flow_rate:
       id: max_flow_rate
       name: Pump - Max Volume/Time Flow Rate
       icon: mdi:car-speed-limiter
-  # - platform: ezo_pmp
-    # id: ezo_pump
-  #   pump_voltage:
-  #     id: pump_voltage
-  #     name: Pump - Voltage
-  #     disabled_by_default: true
+      unit_of_measurement: 'mL/min'
+  - platform: ezo_pmp
+    id: ezo_pump
+    pump_voltage:
+      id: pump_voltage
+      name: Pump - Voltage
+      disabled_by_default: true
+      device_class: 'voltage'
 
 binary_sensor:
   - platform: ezo_pmp
@@ -92,12 +111,13 @@ binary_sensor:
     pump_state:
       id: pump_state
       name: Pump - State
-  # - platform: ezo_pmp
-    # id: ezo_pump
-  #   is_paused:
-  #     id: is_paused
-  #     name: Pump - Paused Status
-  #     disabled_by_default: true
+      icon: mdi:pump
+  - platform: ezo_pmp
+    id: ezo_pump
+    is_paused:
+      id: is_paused
+      name: Pump - Paused Status
+      disabled_by_default: true
 
 text_sensor:
   - platform: ezo_pmp
@@ -118,7 +138,9 @@ number:
   - platform: template
     id: volume
     icon: mdi:pump
-    name: Pump - Volume to Dose (mL)
+    name: Pump - Volume to Dose
+    device_class: 'volume'
+    unit_of_measurement: 'mL'
     optimistic: true
     initial_value: 10 # cannot be less than +/-0.1mL
     min_value: -378541
@@ -128,7 +150,9 @@ number:
   - platform: template
     id: duration
     icon: mdi:timer
-    name: Pump - Time to Dose (minutes)
+    name: Pump - Time to Dose
+    device_class: 'duration'
+    unit_of_measurement: 'min'
     optimistic: true
     initial_value: 1
     min_value: 1
@@ -137,8 +161,9 @@ number:
     step: 0.1
   - platform: template
     id: flow_rate
-    icon: mdi:pump
-    name: Pump - Volume/Time Flow Rate (mL/min)
+    icon: mdi:waves-arrow-right
+    name: Pump - Volume/Time Flow Rate
+    unit_of_measurement: 'mL/min'
     optimistic: true
     initial_value: 10
     min_value: .5

@@ -3,7 +3,7 @@ substitutions:
   name: "aquapi-pump"
   friendly_name: "AquaPi Pump"
   # App Version - Updated: 11/2023
-  app_version: "1.0"
+  app_version: "1.1"
 
 packages:
   device_base: !include common/device_base.yaml

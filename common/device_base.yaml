@@ -24,7 +24,7 @@ esp32:
     type: arduino
 
 dashboard_import:
-  package_import_url: github://TheRealFalseReality/aquapi/aquapi_config.yaml@main
+  package_import_url: github://TheRealFalseReality/aquapi_pump/aquapi_pump_config.yaml@main
   import_full_config: ${import_config}
 
 # Enable logging

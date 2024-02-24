@@ -8,7 +8,7 @@
       "chipFamily": "ESP32",
       "parts": [
         {
-          "path": "aquapi_pump-esp32/aquapi_pump-esp32.bin",
+          "path": "aquapi-pump-esp32/aquapi-pump-esp32.bin",
           "offset": 0
         }
       ]
